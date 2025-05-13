@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Powered Interview Practice Platform by using CIVIC Auth
+
+An intelligent interview practice platform that helps users prepare for technical, behavioral, and system design interviews using AI-powered feedback and analysis.
+
+## Features
+
+- 🤖 AI-powered interview question generation
+- 📝 Real-time answer analysis and feedback
+- 🎯 Multiple interview categories:
+  - Technical Interviews
+  - Behavioral Interviews
+  - System Design Interviews
+- 📊 Performance tracking and scoring
+- 🔄 Follow-up questions based on your answers
+- 💾 Session history and progress tracking
+
+## Tech Stack
+
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+- Shadcn UI Components
+- Google Gemini AI API
+- Civic Auth for authentication
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+- Google Gemini API key
+- Civic Auth credentials
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/interview-practice-platform.git
+cd interview-practice-platform
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a `.env.local` file in the root directory and add your environment variables:
+```env
+NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key
+NEXT_PUBLIC_CIVIC_CLIENT_ID=your_civic_client_id
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Choose your interview category (Technical, Behavioral, or System Design)
+2. Select your experience level
+3. Start practicing with AI-generated questions
+4. Submit your answers for instant feedback
+5. Review your performance and suggested improvements
+6. Practice with follow-up questions
 
-## Learn More
+## Authentication with Civic Auth
 
-To learn more about Next.js, take a look at the following resources:
+This project uses Civic Auth for secure authentication. Civic Auth provides:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Web3-native authentication
+- Multi-chain support
+- Customizable authentication flows
+- Secure credential management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To set up Civic Auth:
 
-## Deploy on Vercel
+1. Sign up for a Civic account at [https://www.civic.com/](https://www.civic.com/)
+2. Create a new project in the Civic dashboard
+3. Get your Client ID and configure your authentication settings
+4. Add the Client ID to your environment variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Google Gemini AI for powering the interview questions and analysis
+- Civic for providing secure authentication
+- Shadcn UI for the beautiful component library
