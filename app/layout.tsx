@@ -1,7 +1,7 @@
 "use client";
 
 import "@/app/globals.css";
-import { GeistSans } from 'geist/font/sans';
+
 import { CivicAuthProvider } from "@civic/auth-web3/nextjs";
 import { WagmiProvider, createConfig, http } from "wagmi";
 //@ts-ignore
@@ -39,7 +39,7 @@ export default function RootLayout({
       <WagmiProvider config={wagmiConfig}>
         <CivicAuthProvider>
           <html lang="en">
-            <body className={`${GeistSans.className} h-screen light`}>
+            <body className={` h-screen light`}>
               <UserLogin />
               <div className="min-h-screen bg-background">
                 <Navbar />
