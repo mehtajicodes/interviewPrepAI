@@ -1,7 +1,7 @@
 "use client";
 
 import "@/app/globals.css";
-import { Geist } from "next/font/google";
+import { GeistSans } from 'geist/font/sans';
 import { CivicAuthProvider } from "@civic/auth-web3/nextjs";
 import { WagmiProvider, createConfig, http } from "wagmi";
 //@ts-ignore
@@ -12,7 +12,6 @@ import UserLogin from "@/components/UserLogin";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 
-const geist = Geist({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
@@ -40,7 +39,7 @@ export default function RootLayout({
       <WagmiProvider config={wagmiConfig}>
         <CivicAuthProvider>
           <html lang="en">
-            <body className={`${geist.className} h-screen light`}>
+            <body className={`${GeistSans.className} h-screen light`}>
               <UserLogin />
               <div className="min-h-screen bg-background">
                 <Navbar />

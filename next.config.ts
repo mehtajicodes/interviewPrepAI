@@ -7,10 +7,19 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: ['localhost'],
+  },
+  env: {
+    NEXT_PUBLIC_GEMINI_API_KEY: process.env.NEXT_PUBLIC_GEMINI_API_KEY,
+    NEXT_PUBLIC_CIVIC_CLIENT_ID: process.env.NEXT_PUBLIC_CIVIC_CLIENT_ID,
+  },
 };
 
 const withCivicAuth = createCivicAuthPlugin({
-  clientId: "4fc8c1fb-2cca-4b8a-bcb3-a9d666dd5f64",
+  clientId: process.env.NEXT_PUBLIC_CIVIC_CLIENT_ID || "4fc8c1fb-2cca-4b8a-bcb3-a9d666dd5f64",
 });
 
 export default withCivicAuth(nextConfig);
