@@ -27,7 +27,7 @@ import {
 import EditTransactionForm from "@/components/EditTransactionForm";
 import { format } from "date-fns";
 import BottomNav from "@/components/BottomNav";
-import Expninc from "@/components/expninc";
+// import Expninc from "@/components/expninc";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { UserButton } from "@civic/auth-web3/react";
 
