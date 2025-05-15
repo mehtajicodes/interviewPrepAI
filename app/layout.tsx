@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`h-screen light`}>
         <QueryClientProvider client={queryClient}>
           <WagmiProvider config={wagmiConfig}>
-            <CivicAuthProvider gatedRoutes={["/practice", "/feedback", "/analysis", "/questions", "/filter"]}>
+            <CivicAuthProvider>
               <UserLogin />
               <div className="min-h-screen bg-background">
                 <Navbar />
