@@ -9,7 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { format as formatDate } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import categories from "@/lib/categories";
 
@@ -94,7 +94,7 @@ export default function AddTransactionForm({
               variant={"outline"}
               className={`w-full justify-start text-left font-normal mt-1 text-md py-3`}>
               <CalendarIcon className="mr-2 h-4 w-4" />
-              {date ? format(date, "PPP") : <span>Pick a date</span>}
+              {/* {date ? formatDate(date, "PPP") : <span>Pick a date</span>} */}
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0">

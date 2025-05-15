@@ -25,7 +25,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import EditTransactionForm from "@/components/EditTransactionForm";
-import { format } from "date-fns";
+import { format as formatDate } from "date-fns";
 import BottomNav from "@/components/BottomNav";
 // import Expninc from "@/components/expninc";
 import { DialogDescription } from "@radix-ui/react-dialog";

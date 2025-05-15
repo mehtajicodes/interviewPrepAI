@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
-import { format } from "date-fns";
+import { format as formatDate } from "date-fns";
 import BackButton from "@/components/back-button";
 import categories from "@/lib/categories";
 
@@ -75,7 +75,7 @@ export default function FilterTags() {
                 className="flex justify-between items-center bg-accent/60 p-3 rounded-xl mb-2">
                 <div>
                   <div className="flex gap-1 items-center text-xs text-muted-foreground">
-                    <p>{format(new Date(transaction.date), "MMM d, yyyy")}</p>
+                   
                     <p>•</p>
                     <p>{transaction.category}</p>
                   </div>
