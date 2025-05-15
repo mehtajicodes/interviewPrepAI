@@ -35,11 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <WagmiProvider config={wagmiConfig}>
-        <CivicAuthProvider>
-          <html lang="en">
-            <body className={` h-screen light`}>
+    <html lang="en">
+      <body className={`h-screen light`}>
+        <QueryClientProvider client={queryClient}>
+          <WagmiProvider config={wagmiConfig}>
+            <CivicAuthProvider gatedRoutes={["/practice", "/feedback", "/analysis", "/questions", "/filter"]}>
               <UserLogin />
               <div className="min-h-screen bg-background">
                 <Navbar />
@@ -47,10 +47,10 @@ export default function RootLayout({
                   {children}
                 </main>
               </div>
-            </body>
-          </html>
-        </CivicAuthProvider>
-      </WagmiProvider>
-    </QueryClientProvider>
+            </CivicAuthProvider>
+          </WagmiProvider>
+        </QueryClientProvider>
+      </body>
+    </html>
   );
 }

@@ -2,8 +2,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useUser } from "@civic/auth-web3/react";
-import { userHasWallet } from "@civic/auth-web3";
+import { useUser } from "@civic/auth/react";
+import { userHasWallet } from "@civic/auth";
 
 type Network = "ethereum" | "solana";
 

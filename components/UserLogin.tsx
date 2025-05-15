@@ -1,4 +1,6 @@
-import { UserButton } from "@civic/auth/react";
+"use client";
+
+import { UserButton } from "@civic/auth-web3/react";
 import Link from "next/link";
 import { useUser } from "@civic/auth-web3/react";
 

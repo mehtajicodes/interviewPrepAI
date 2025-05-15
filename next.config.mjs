@@ -25,8 +25,7 @@
 // export default withCivicAuth(nextConfig);
 
 // // export default nextConfig;
-/** @type {import('next').NextConfig} */
-const { createCivicAuthPlugin } = require("@civic/auth-web3/nextjs");
+import { createCivicAuthPlugin } from "@civic/auth/nextjs";
 
 const nextConfig = {
   eslint: {
@@ -47,4 +46,4 @@ const withCivicAuth = createCivicAuthPlugin({
   clientId: process.env.NEXT_PUBLIC_CIVIC_CLIENT_ID || "4fc8c1fb-2cca-4b8a-bcb3-a9d666dd5f64",
 });
 
-module.exports = withCivicAuth(nextConfig);
+export default withCivicAuth(nextConfig);
