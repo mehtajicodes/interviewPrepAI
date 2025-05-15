@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { generateInterviewQuestions, analyzeAnswer, generateFollowUpQuestion, getInterviewTips } from "@/lib/gemini";
+import { generateInterviewQuestions, analyzeAnswer, generateFollowUpQuestion, getInterviewTips, generateMCQQuestions } from "@/lib/gemini";
 
 export async function POST(req: Request) {
   try {
@@ -22,6 +22,10 @@ export async function POST(req: Request) {
         const tips = await getInterviewTips(data.category);
         return NextResponse.json(tips);
 
+      case "generateMCQQuestions":
+        const mcqQuestions = await generateMCQQuestions(data.topic);
+        return NextResponse.json(mcqQuestions);
+
       default:
         return NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
@@ -29,4 +33,4 @@ export async function POST(req: Request) {
     console.error("API Error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
-} 
+}

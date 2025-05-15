@@ -151,4 +151,70 @@ export async function getInterviewTips(category: string) {
     .map(line => line.trim())
     .filter(line => line.match(/^\d+\./))
     .map(line => line.replace(/^\d+\.\s*/, ''));
-} 
+}
+
+export interface MCQQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: string;
+  explanation: string;
+}
+
+export async function generateMCQQuestions(topic: string): Promise<MCQQuestion[]> {
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  
+  const prompt = `Generate 5 multiple choice questions about ${topic}.
+    Format each question exactly like this:
+    Q: [Question text]
+    A) [Option A]
+    B) [Option B]
+    C) [Option C]
+    D) [Option D]
+    Correct: [A/B/C/D]
+    E: [Explanation why this is correct]
+
+    Make sure the questions test different aspects of ${topic}.`;
+
+  try {
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text().trim();
+    
+    const questions: MCQQuestion[] = [];
+    const lines = text.split('\n');
+    let currentQuestion: Partial<MCQQuestion> = {};
+    let options: string[] = [];
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('Q:')) {
+        if (Object.keys(currentQuestion).length > 0) {
+          questions.push(currentQuestion as MCQQuestion);
+          currentQuestion = {};
+          options = [];
+        }
+        currentQuestion.question = trimmed.substring(2).trim();
+      } else if (trimmed.match(/^[A-D]\)/)) {
+        options.push(trimmed.substring(2).trim());
+        if (options.length === 4) {
+          currentQuestion.options = options;
+        }
+      } else if (trimmed.startsWith('Correct:')) {
+        const correctLetter = trimmed.substring(8).trim();
+        const index = correctLetter.charCodeAt(0) - 'A'.charCodeAt(0);
+        currentQuestion.correctAnswer = options[index];
+      } else if (trimmed.startsWith('E:')) {
+        currentQuestion.explanation = trimmed.substring(2).trim();
+      }
+    }
+
+    if (Object.keys(currentQuestion).length > 0) {
+      questions.push(currentQuestion as MCQQuestion);
+    }
+
+    return questions;
+  } catch (error) {
+    console.error('Error generating MCQ questions:', error);
+    throw new Error('Failed to generate quiz questions');
+  }
+}
